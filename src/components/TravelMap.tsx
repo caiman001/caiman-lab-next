@@ -129,7 +129,7 @@ export default function TravelMap() {
         .dark-popup .leaflet-popup-content { margin: 0; }
         .dark-popup .leaflet-popup-tip-container { display: none; }
         .leaflet-container { background: #05050a !important; }
-        .leaflet-tile-pane { filter: brightness(.5) saturate(.35) contrast(1.15) hue-rotate(200deg); }
+        .leaflet-tile-pane { filter: brightness(.45) saturate(.2) contrast(1.2); }
       `}</style>
       <div ref={ref} style={{ width: "100%", height: 300, borderRadius: 12, overflow: "hidden" }} />
     </>
