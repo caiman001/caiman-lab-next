@@ -12,5 +12,9 @@ export default function HorizontalScroll({ children }: { children: ReactNode }) 
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
-  return <div ref={ref} className="hscroll">{children}</div>;
+  return (
+    <div className="hscroll-wrap">
+      <div ref={ref} className="hscroll">{children}</div>
+    </div>
+  );
 }
