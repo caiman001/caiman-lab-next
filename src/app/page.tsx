@@ -67,7 +67,7 @@ export default function Home() {
           <FadeIn delay={1}>
             <WorkCard
               num="01 · BRAND / PRODUCT / AI"
-              title="Beandance"
+              title="Spring OS"
               desc="为创意工具设计的视觉与交互语言。"
               tags={["Brand", "Product", "AI"]}
             />
@@ -75,7 +75,7 @@ export default function Home() {
           <FadeIn delay={2}>
             <WorkCard
               num="02 · INTERFACE / MOTION / SYSTEMS"
-              title="Studio Fly"
+              title="Studio Flow"
               desc="具有电影节奏感的 AI 工作空间。"
               tags={["Interface", "Motion", "Systems"]}
             />
@@ -86,7 +86,7 @@ export default function Home() {
       {/* Intel */}
       <section id="intel" className="mx-auto max-w-[var(--max)] px-8" style={{ padding: "96px 0" }}>
         <FadeIn>
-          <SectionHeader eyebrow="Intel" title="最近在看👀" />
+          <SectionHeader eyebrow="Intel" title="最近在看👀" description="精选链接、视频与阅读材料。" />
         </FadeIn>
 
         {/* Picks */}
@@ -162,7 +162,7 @@ export default function Home() {
       {/* Explore */}
       <section id="explore" className="mx-auto max-w-[var(--max)] px-8" style={{ padding: "96px 0" }}>
         <FadeIn>
-          <SectionHeader eyebrow="Explore" title="其他探索🌟" description="投资追踪、语言备考与旅行记录" />
+          <SectionHeader eyebrow="Explore" title="其他探索" description="投资追踪、语言备考与旅行记录" />
         </FadeIn>
         <div className="mb-3 grid grid-cols-2 gap-3">
           <FadeIn>

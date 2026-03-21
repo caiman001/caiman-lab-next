@@ -12,12 +12,11 @@ export default function FadeIn({ children, delay = 0 }: { children: ReactNode; d
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.style.opacity = "1";
-          el.style.transform = "none";
+          el.classList.add("fade-in-visible");
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     observer.observe(el);
@@ -27,11 +26,8 @@ export default function FadeIn({ children, delay = 0 }: { children: ReactNode; d
   return (
     <div
       ref={ref}
-      style={{
-        opacity: 0,
-        transform: "translateY(20px)",
-        transition: `opacity 1s cubic-bezier(.16,1,.3,1) ${delay * 0.12}s, transform 1s cubic-bezier(.16,1,.3,1) ${delay * 0.12}s`,
-      }}
+      className="fade-in-item"
+      style={{ "--fade-delay": `${delay * 0.12}s` } as React.CSSProperties}
     >
       {children}
     </div>

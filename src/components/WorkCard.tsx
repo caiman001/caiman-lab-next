@@ -12,13 +12,24 @@ interface WorkCardProps {
 export default function WorkCard({ num, title, desc, tags }: WorkCardProps) {
   return (
     <a
-      className="group block overflow-hidden rounded-[var(--radius)] border text-inherit no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,.7)]"
+      className="card group block overflow-hidden rounded-[var(--radius)] border text-inherit no-underline"
       style={{
         background: "rgba(255,255,255,.018)",
         borderColor: "var(--border)",
+        transition: "border-color .2s, transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, background .2s",
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--border-hover)")}
-      onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.background = "rgba(255,255,255,.025)";
+        e.currentTarget.style.borderColor = "var(--border-hover)";
+        e.currentTarget.style.transform = "translateY(-4px)";
+        e.currentTarget.style.boxShadow = "0 20px 60px rgba(0,0,0,.7)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = "rgba(255,255,255,.018)";
+        e.currentTarget.style.borderColor = "var(--border)";
+        e.currentTarget.style.transform = "";
+        e.currentTarget.style.boxShadow = "";
+      }}
     >
       <div
         className="relative flex h-[220px] items-center justify-center overflow-hidden"

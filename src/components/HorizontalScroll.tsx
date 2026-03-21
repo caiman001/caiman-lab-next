@@ -28,10 +28,6 @@ export default function HorizontalScroll({ children }: { children: ReactNode }) 
         scrollSnapType: "x mandatory",
         WebkitOverflowScrolling: "touch",
         scrollbarWidth: "none",
-        maskImage:
-          "linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent)",
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent)",
       }}
     >
       {children}
