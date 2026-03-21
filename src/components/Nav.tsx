@@ -25,10 +25,11 @@ export default function Nav() {
 
   return (
     <nav style={{
-      position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)",
+      position: "fixed", top: 14, left: 0, right: 0,
       zIndex: 100, pointerEvents: "none",
+      display: "flex", justifyContent: "center",
     }}>
-      <div style={{ pointerEvents: "auto" }}>
+      <div style={{ pointerEvents: "auto", width: "max-content" }}>
         <LiquidGlass
           cornerRadius={999}
           displacementScale={40}
@@ -43,8 +44,8 @@ export default function Nav() {
             <a href="/" style={{
               fontFamily: "'Press Start 2P',monospace", fontSize: 8,
               color: "rgba(255,255,255,.8)", textDecoration: "none",
-              letterSpacing: ".04em", paddingRight: 16, marginRight: 6,
-              borderRight: "1px solid rgba(255,255,255,.1)", whiteSpace: "nowrap",
+              letterSpacing: ".04em", paddingRight: 16, marginRight: 6, /* Removed borderRight */
+              whiteSpace: "nowrap",
             }}>
               CAIMAN.LAB
             </a>
