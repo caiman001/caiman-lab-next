@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -21,9 +23,6 @@ body {
   --max: 1080px;
   --px: 48px;
 }
-
-/* ── Typography ── */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 /* ── Divider lines ── */
 .rule { border: none; border-top: 1px solid var(--border); }
