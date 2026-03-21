@@ -1,0 +1,46 @@
+[
+  {
+    "date": "2026-03-21",
+    "source": "X",
+    "name": "Sam Altman",
+    "name_en": "Sam Altman",
+    "role": "CEO, OpenAI",
+    "role_en": "CEO, OpenAI",
+    "summary": "GPT-4o 图像生成能力正式上线，支持精准文字渲染与复杂场景合成，用户反响热烈。",
+    "summary_en": "GPT-4o image generation officially launched with precise text rendering and complex scene synthesis. User response has been overwhelmingly positive.",
+    "url": "https://x.com/sama"
+  },
+  {
+    "date": "2026-03-20",
+    "source": "X",
+    "name": "Andrej Karpathy",
+    "name_en": "Andrej Karpathy",
+    "role": "AI Researcher",
+    "role_en": "AI Researcher",
+    "summary": "AI 工具正在将软件工程师转变为「软件指挥家」——更多精力用于编排，更少用于逐行编码。",
+    "summary_en": "AI tools are turning software engineers into 'software conductors' — more effort spent orchestrating, less on line-by-line coding.",
+    "url": "https://x.com/karpathy"
+  },
+  {
+    "date": "2026-03-19",
+    "source": "Newsletter",
+    "name": "Ben Thompson",
+    "name_en": "Ben Thompson",
+    "role": "Stratechery",
+    "role_en": "Stratechery",
+    "summary": "AI 原生应用正在绕过传统分发渠道，直接触达用户，这将从根本上改变软件商业模式。",
+    "summary_en": "AI-native apps are bypassing traditional distribution channels to reach users directly, fundamentally reshaping software business models.",
+    "url": "https://stratechery.com"
+  },
+  {
+    "date": "2026-03-18",
+    "source": "X",
+    "name": "Demis Hassabis",
+    "name_en": "Demis Hassabis",
+    "role": "CEO, Google DeepMind",
+    "role_en": "CEO, Google DeepMind",
+    "summary": "Gemini 2.0 在科学推理基准上超越人类专家水平，标志着 AI 在专业领域的重要里程碑。",
+    "summary_en": "Gemini 2.0 surpasses human expert-level performance on scientific reasoning benchmarks, marking a significant AI milestone in specialized domains.",
+    "url": "https://x.com/demishassabis"
+  }
+]
