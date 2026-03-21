@@ -1,55 +1,68 @@
 "use client";
+import { useEffect, useState } from "react";
 
-const links = [
-  { href: "#work", label: "Work" },
-  { href: "#intel", label: "Intel" },
-  { href: "#design", label: "Design" },
-  { href: "#explore", label: "Explore" },
+const LINKS = [
+  { id: "work",    label: "Work" },
+  { id: "intel",   label: "Intel" },
+  { id: "design",  label: "Design" },
+  { id: "explore", label: "Explore" },
 ];
 
 export default function Nav() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    LINKS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 px-8 py-3">
-      <div
-        className="mx-auto flex h-12 max-w-[calc(var(--max)-64px)] items-center justify-between rounded-[10px] border px-6"
-        style={{
-          background: "rgba(8,8,8,.92)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          borderColor: "var(--border)",
-        }}
-      >
-        <a
-          href="#"
-          className="text-[13px] font-extrabold tracking-[.08em]"
-          style={{
-            fontFamily: "'Cormorant Garamond','PingFang SC',sans-serif",
-            color: "var(--fg)",
-            textDecoration: "none",
-          }}
-        >
+    <nav style={{
+      position: "sticky", top: 12, zIndex: 100,
+      padding: "0 20px", marginBottom: 0,
+    }}>
+      <div style={{
+        maxWidth: "var(--max)", margin: "0 auto",
+        height: 48,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        background: "rgba(8,8,8,.88)",
+        backdropFilter: "blur(20px)",
+        border: "1px solid var(--border)",
+        borderRadius: "var(--radius)",
+        padding: "0 20px",
+      }}>
+        <a href="/" style={{ fontFamily: "'Press Start 2P',monospace", fontSize: 11, color: "var(--fg)", textDecoration: "none", letterSpacing: ".04em" }}>
           CAIMAN.LAB
         </a>
-        <nav className="flex gap-0.5">
-          {links.map((l) => (
-            <NavLink key={l.href} href={l.href} label={l.label} />
+        <div style={{ display: "flex", gap: 4 }}>
+          {LINKS.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              style={{
+                fontSize: 13,
+                padding: "5px 12px",
+                borderRadius: 6,
+                textDecoration: "none",
+                transition: "color .2s, background .2s",
+                color: active === id ? "var(--fg)" : "var(--muted)",
+                background: active === id ? "rgba(255,255,255,.06)" : "transparent",
+              }}
+            >
+              {label}
+            </a>
           ))}
-        </nav>
+        </div>
       </div>
-    </header>
-  );
-}
-
-function NavLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      className="nav-link rounded-md px-3 py-1.5 text-[13px] transition-colors hover:bg-white/5"
-      style={{ color: "var(--muted)", textDecoration: "none" }}
-      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
-      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
-    >
-      {label}
-    </a>
+    </nav>
   );
 }

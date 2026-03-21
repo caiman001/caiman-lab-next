@@ -7,14 +7,10 @@ export const metadata: Metadata = {
   description: "Design, Work, Intel & Explore",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col" style={{ background: 'var(--bg)', color: 'var(--fg)' }}>
+    <html lang="zh-CN" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <Nav />
         {children}
       </body>
