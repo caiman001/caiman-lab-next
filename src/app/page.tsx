@@ -138,46 +138,48 @@ export default function Home() {
             </div>
           </FadeIn>
           <FadeIn>
-            <div className="explore-grid">
-              {/* Invest */}
-              <div className="explore-cell">
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24 }}>
-                  <span style={{ fontSize: 18 }}>📈</span>
-                  <p className="label">Invest</p>
-                </div>
-                <InvestClient />
-              </div>
-              {/* English */}
-              <div className="explore-cell">
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24 }}>
-                  <span style={{ fontSize: 18 }}>🎯</span>
-                  <p className="label">English</p>
-                </div>
-                <CountdownSection />
-              </div>
-            </div>
-            {/* Travel */}
-            <div className="explore-full glass" style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0, borderTop: "1px solid rgba(255,255,255,.07)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
-                <span style={{ fontSize: 18 }}>✈️</span>
-                <p className="label">Travel</p>
-              </div>
-              {/* Stats — gradient big numbers */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0, marginBottom: 28, paddingBottom: 24, borderBottom: "1px solid rgba(255,255,255,.07)" }}>
-                {[
-                  { v: "12", l: "城市", icon: "🏙️" },
-                  { v: "8",  l: "国家", icon: "🌏" },
-                  { v: "10,740", l: "km", icon: "📍" },
-                  { v: "TBD", l: "下一站", icon: "🗺️" },
-                ].map(({ v, l, icon }) => (
-                  <div key={l}>
-                    <div style={{ fontSize: 16, marginBottom: 6 }}>{icon}</div>
-                    <div className="explore-stat-val">{v}</div>
-                    <div className="meta" style={{ marginTop: 6, letterSpacing: ".1em", textTransform: "uppercase" }}>{l}</div>
+            {/* Unified wrapper — single border-radius, no raw corners */}
+            <div className="explore-wrap">
+              <div className="explore-grid">
+                {/* Invest */}
+                <div className="explore-cell explore-animate">
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24 }}>
+                    <span style={{ fontSize: 18 }}>📈</span>
+                    <p className="label">Invest</p>
                   </div>
-                ))}
+                  <InvestClient />
+                </div>
+                {/* English */}
+                <div className="explore-cell explore-animate">
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24 }}>
+                    <span style={{ fontSize: 18 }}>🎯</span>
+                    <p className="label">English</p>
+                  </div>
+                  <CountdownSection />
+                </div>
               </div>
-              <TravelMapClient />
+              {/* Travel — same wrapper, no extra radius override */}
+              <div className="explore-full explore-animate">
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 28 }}>
+                  <span style={{ fontSize: 18 }}>✈️</span>
+                  <p className="label">Travel</p>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", marginBottom: 28, paddingBottom: 24, borderBottom: "1px solid rgba(255,255,255,.07)" }}>
+                  {[
+                    { v: "12",     l: "城市", icon: "🏙️" },
+                    { v: "8",      l: "国家", icon: "🌏" },
+                    { v: "10,740", l: "km",   icon: "📍" },
+                    { v: "TBD",    l: "下一站", icon: "🗺️" },
+                  ].map(({ v, l, icon }) => (
+                    <div key={l}>
+                      <div style={{ fontSize: 16, marginBottom: 6 }}>{icon}</div>
+                      <div className="explore-stat-val">{v}</div>
+                      <div className="meta" style={{ marginTop: 6, letterSpacing: ".1em", textTransform: "uppercase" }}>{l}</div>
+                    </div>
+                  ))}
+                </div>
+                <TravelMapClient />
+              </div>
             </div>
           </FadeIn>
         </div>
