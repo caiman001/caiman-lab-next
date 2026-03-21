@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
 
-/* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -12,133 +11,124 @@ body {
   font-size: 14px;
 }
 
-/* ── Tokens ── */
 :root {
   --bg: #080808;
   --fg: #e8e8e8;
   --border: rgba(255,255,255,.08);
-  --muted: #555;
-  --muted2: #333;
-  --radius: 8px;
+  --muted: rgba(255,255,255,.32);
+  --muted2: rgba(255,255,255,.12);
+  --card-bg: #111111;
+  --radius: 12px;
   --max: 1080px;
   --px: 48px;
 }
 
-/* ── Divider lines ── */
-.rule { border: none; border-top: 1px solid var(--border); }
+/* ── Section divider ── */
+.sec-rule { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-/* ── Section label ── */
+/* ── Eyebrow label ── */
 .eyebrow {
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: .18em;
+  letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-/* ── Work row hover ── */
+/* ── Work list row ── */
 .work-row {
   display: grid;
-  grid-template-columns: 3rem 1fr auto;
-  align-items: baseline;
-  gap: 0 32px;
-  padding: 22px 0;
+  grid-template-columns: 2.5rem 1fr auto;
+  align-items: center;
+  gap: 0 28px;
+  padding: 20px 0;
   border-bottom: 1px solid var(--border);
   cursor: default;
-  transition: background .15s;
+  transition: padding .2s, background .2s;
+  border-radius: 0;
 }
-.work-row:first-child { border-top: 1px solid var(--border); }
-.work-row:hover { background: rgba(255,255,255,.025); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+.work-row:first-of-type { border-top: 1px solid var(--border); }
+.work-row:hover { background: rgba(255,255,255,.03); padding-left: 16px; padding-right: 16px; margin: 0 -16px; border-radius: 8px; border-color: transparent; }
+.work-row .work-tags { opacity: 0; transition: opacity .2s; }
 .work-row:hover .work-tags { opacity: 1; }
-.work-tags { opacity: 0; transition: opacity .2s; }
 
-/* ── Intel list rows ── */
+/* ── Intel list row ── */
 .intel-row {
   display: grid;
-  grid-template-columns: 64px 1fr auto;
+  grid-template-columns: 80px 1fr auto;
   align-items: start;
   gap: 0 24px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
-  transition: background .15s;
+  transition: background .15s, padding .15s;
 }
-.intel-row:first-child { border-top: 1px solid var(--border); }
-.intel-row:hover { background: rgba(255,255,255,.025); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+.intel-row:first-of-type { border-top: 1px solid var(--border); }
+.intel-row:hover { background: rgba(255,255,255,.03); padding-left: 16px; padding-right: 16px; margin: 0 -16px; }
 
-/* ── Signal list rows ── */
+/* ── Signal list row ── */
 .signal-row {
   display: grid;
-  grid-template-columns: 140px 1fr 1fr auto;
+  grid-template-columns: 160px 1fr 1fr 80px;
   align-items: start;
-  gap: 0 32px;
+  gap: 0 28px;
   padding: 20px 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
-  transition: background .15s;
+  transition: background .15s, padding .15s;
 }
-.signal-row:first-child { border-top: 1px solid var(--border); }
-.signal-row:hover { background: rgba(255,255,255,.025); margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+.signal-row:first-of-type { border-top: 1px solid var(--border); }
+.signal-row:hover { background: rgba(255,255,255,.03); padding-left: 16px; padding-right: 16px; margin: 0 -16px; }
 
 /* ── Explore grid ── */
 .explore-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
 }
 .explore-cell {
-  background: var(--bg);
-  padding: 32px;
+  background: #0d0d0d;
+  padding: 28px 32px 32px;
+}
+.explore-cell + .explore-cell {
+  border-left: 1px solid var(--border);
 }
 .explore-full {
   border-top: 1px solid var(--border);
-  padding: 32px;
+  background: #0d0d0d;
+  padding: 28px 32px 32px;
 }
 
-/* ── Invest stat ── */
-.invest-stat {
-  padding: 20px 0;
+/* ── Invest ── */
+.invest-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
-.invest-stat:last-child { border-bottom: none; }
+.invest-row:last-child { border-bottom: none; }
 
 /* ── Countdown ── */
-.cd-num {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 22px;
-  letter-spacing: .04em;
-  line-height: 1;
-}
-.cd-unit-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6px;
-  letter-spacing: .06em;
-  margin-top: 6px;
-  color: var(--muted);
-}
-.cd-sep {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 16px;
-  color: var(--muted2);
-  padding-bottom: 14px;
-}
+.cd-num { font-family: 'Press Start 2P', monospace; font-size: 20px; line-height: 1; }
+.cd-unit { font-family: 'Press Start 2P', monospace; font-size: 6px; letter-spacing: .06em; color: var(--muted); margin-top: 6px; }
+.cd-sep { font-family: 'Press Start 2P', monospace; font-size: 14px; color: var(--muted2); padding-bottom: 12px; }
 
 /* ── Leaflet ── */
 .leaflet-container { background: #080808 !important; }
+.leaflet-tile-pane { filter: brightness(.7) saturate(.5); }
 
 /* ── FadeIn ── */
 [data-fade] { opacity: 1; transform: none; }
 .js-ready [data-fade]:not(.visible) {
-  opacity: 0; transform: translateY(16px);
-  transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
 }
 .js-ready [data-fade].visible { opacity: 1; transform: none; }
-.js-ready [data-fade][data-delay="1"] { transition-delay: .1s; }
-.js-ready [data-fade][data-delay="2"] { transition-delay: .2s; }
-.js-ready [data-fade][data-delay="3"] { transition-delay: .3s; }
+.js-ready [data-fade][data-delay="1"] { transition-delay: .08s; }
+.js-ready [data-fade][data-delay="2"] { transition-delay: .16s; }
+.js-ready [data-fade][data-delay="3"] { transition-delay: .24s; }
