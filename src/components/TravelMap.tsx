@@ -49,7 +49,7 @@ export default function TravelMap() {
           html: `
             <div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 2px 6px rgba(0,0,0,.9));">
               <div style="font-size:20px;line-height:1;">${emoji}</div>
-              <div style="margin-top:3px;font-family:Inter,sans-serif;font-size:8px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.7);text-shadow:0 1px 4px rgba(0,0,0,1);white-space:nowrap;">${name}</div>
+              <div style="margin-top:4px;font-family:Inter,sans-serif;font-size:9px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.75);text-shadow:0 1px 4px rgba(0,0,0,1);white-space:nowrap;">${name}</div>
             </div>`,
           iconSize: [40, 40], iconAnchor: [20, 40],
         });
@@ -84,7 +84,7 @@ export default function TravelMap() {
         .dark-popup .leaflet-popup-content { margin: 0; }
         .dark-popup .leaflet-popup-tip-container { display: none; }
         .leaflet-container { background: #080808 !important; }
-        .leaflet-tile-pane { filter: brightness(.78) saturate(.28) contrast(1.12); }
+        .leaflet-tile-pane { filter: brightness(.85) saturate(.35) contrast(1.15); } /* Further brightened and desaturated */
       `}</style>
       <div ref={ref} style={{ width: "100%", height: 300, borderRadius: 12, overflow: "hidden" }} />
     </>

@@ -7,7 +7,7 @@ interface WorkCardProps { num: string; title: string; desc: string; tags: string
 
 export default function WorkCard({ num, title, desc, tags, index = 0 }: WorkCardProps) {
   return (
-    <div className="std-card">
+    <div className="std-card" style={{ flex: "0 0 240px", minWidth: 0 }}>
       <div className="std-card-preview" style={{ background: PREVIEWS[index % PREVIEWS.length] }}>
         <div style={{
           position: "absolute", inset: 0,
