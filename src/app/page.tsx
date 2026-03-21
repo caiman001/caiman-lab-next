@@ -6,6 +6,7 @@ import TravelMapClient from "@/components/TravelMapClient";
 import IntelPicksCard from "@/components/IntelPicksCard";
 import IntelSignalCard from "@/components/IntelSignalCard";
 import HorizontalScroll from "@/components/HorizontalScroll";
+import CardPlaceholder from "@/components/CardPlaceholder";
 import signalData from "../../public/data/signal-data.json";
 
 const C: React.CSSProperties = { maxWidth: "var(--max)", margin: "0 auto", padding: "0 var(--px)" };
@@ -55,7 +56,7 @@ export default function Home() {
               <span className="meta">最新做的项目实验</span>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}> {/* Adjusted gap */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, var(--card-w))", justifyContent: "center", gap: 12 }}>
             <FadeIn delay={1}><WorkCard index={0} num="01 · BRAND / PRODUCT / AI" title="Spring OS" desc="为创意工具设计的视觉与交互语言。" tags={["Brand","Product","AI"]} /></FadeIn>
             <FadeIn delay={2}><WorkCard index={1} num="02 · INTERFACE / MOTION / SYSTEMS" title="Studio Flow" desc="具有电影节奏感的 AI 工作空间。" tags={["Interface","Motion","Systems"]} /></FadeIn>
           </div>
@@ -109,20 +110,10 @@ export default function Home() {
             </div>
           </FadeIn>
           <FadeIn>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}> {/* Adjusted gap */}
-              <div className="std-card std-card-ph">
-                <div className="std-card-ph-inner">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                  <span>Coming Soon</span>
-                </div>
-              </div>
-              <div className="std-card std-card-ph">
-                <div className="std-card-ph-inner">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                  <span>Coming Soon</span>
-                </div>
-              </div>
-            </div>
+            <HorizontalScroll>
+              <CardPlaceholder />
+              <CardPlaceholder />
+            </HorizontalScroll>
           </FadeIn>
         </div>
       </section>
