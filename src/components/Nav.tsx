@@ -2,42 +2,47 @@
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  { id: "work",    label: "Work" },
-  { id: "intel",   label: "Intel" },
-  { id: "design",  label: "Design" },
+  { id: "work", label: "Work" },
+  { id: "intel", label: "Intel" },
+  { id: "design", label: "Design" },
   { id: "explore", label: "Explore" },
 ];
 
 export default function Nav() {
   const [active, setActive] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      (entries) => { entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }); },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      entries => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }),
+      { rootMargin: "-40% 0px -55% 0px" }
     );
     LINKS.forEach(({ id }) => { const el = document.getElementById(id); if (el) obs.observe(el); });
-    return () => obs.disconnect();
+
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => { obs.disconnect(); window.removeEventListener("scroll", onScroll); };
   }, []);
 
   return (
-    <nav style={{
-      position: "sticky", top: 0, zIndex: 100,
-      borderBottom: "1px solid rgba(255,255,255,.06)",
-      background: "rgba(8,8,8,.92)",
-      backdropFilter: "blur(20px)",
-    }}>
-      <div style={{ maxWidth: "var(--max)", margin: "0 auto", padding: "0 var(--px)", height: 52, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="/" style={{ fontFamily: "'Press Start 2P',monospace", fontSize: 10, color: "var(--fg)", textDecoration: "none", letterSpacing: ".04em", opacity: .9 }}>
+    <nav className="nav" style={{ borderBottomColor: scrolled ? "rgba(255,255,255,.07)" : "transparent" }}>
+      <div className="nav-inner">
+        <a href="/" style={{
+          fontFamily: "'Press Start 2P',monospace", fontSize: 10,
+          color: "var(--fg)", textDecoration: "none", letterSpacing: ".04em", opacity: .85,
+        }}>
           CAIMAN.LAB
         </a>
-        <div style={{ display: "flex", gap: 32 }}>
+        <div style={{ display: "flex", gap: 28 }}>
           {LINKS.map(({ id, label }) => (
             <a key={id} href={`#${id}`} style={{
-              fontSize: 12, textDecoration: "none", letterSpacing: ".04em",
-              color: active === id ? "var(--fg)" : "var(--muted)",
+              fontSize: 12, textDecoration: "none", letterSpacing: ".03em",
+              color: active === id ? "var(--fg)" : "var(--fg3)",
               transition: "color .2s",
-            }}>{label}</a>
+            }}>
+              {label}
+            </a>
           ))}
         </div>
       </div>
