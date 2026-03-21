@@ -30,7 +30,7 @@ export default function WorkCard({ num, title, desc, tags }: WorkCardProps) {
       {/* Body */}
       <div style={{ padding: "24px 26px 26px" }}>
         <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 12, letterSpacing: ".06em" }}>{num}</div>
-        <h3 style={{ fontFamily: "'Cormorant Garamond','PingFang SC',sans-serif", fontSize: 24, fontWeight: 700, letterSpacing: "-.04em", marginBottom: 8 }}>{title}</h3>
+        <h3 style={{ fontFamily: "'Inter',ui-sans-serif,sans-serif", fontSize: 20, fontWeight: 700, letterSpacing: "-.03em", marginBottom: 8 }}>{title}</h3>
         <p style={{ color: "var(--muted)", fontSize: 13, lineHeight: 1.65 }}>{desc}</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 18 }}>
           {tags.map(t => (
