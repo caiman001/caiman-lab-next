@@ -4,8 +4,8 @@ export default function WorkCard({ num, title, desc, tags }: WorkCardProps) {
   return (
     <div className="work-card">
       <div className="work-card-preview">
-        <div className="work-card-preview-grid">
-          <span style={{ fontSize: 9, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(255,255,255,.05)", fontFamily: "Inter,sans-serif" }}>{title}</span>
+        <div className="work-card-preview-inner">
+          <span style={{ fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: "rgba(255,255,255,.04)" }}>{title}</span>
         </div>
       </div>
       <div className="work-card-body">
