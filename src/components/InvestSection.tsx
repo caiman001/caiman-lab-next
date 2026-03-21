@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, CategoryScale, Filler, Tooltip } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -12,48 +11,43 @@ const chartData = {
   labels,
   datasets: [{
     data: scores,
-    borderColor: "rgb(6,182,212)",
-    borderWidth: 1.5,
-    backgroundColor: "rgba(6,182,212,.08)",
-    fill: true,
-    tension: 0.45,
-    pointRadius: 0,
-    pointHoverRadius: 4,
-    pointHoverBackgroundColor: "rgb(6,182,212)",
+    borderColor: "rgba(255,255,255,.3)",
+    borderWidth: 1,
+    backgroundColor: "rgba(255,255,255,.03)",
+    fill: true, tension: 0.45, pointRadius: 0,
   }],
 };
 
 const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
+  responsive: true, maintainAspectRatio: false,
   plugins: { legend: { display: false }, tooltip: { mode: "index" as const, intersect: false } },
   scales: {
-    x: { grid: { color: "rgba(255,255,255,.04)", drawTicks: false }, ticks: { color: "#444", font: { size: 10 }, maxRotation: 0 } },
-    y: { grid: { color: "rgba(255,255,255,.04)", drawTicks: false }, ticks: { color: "#444", font: { size: 10 } }, min: 0, max: 6 },
+    x: { grid: { color: "rgba(255,255,255,.04)", drawTicks: false }, ticks: { color: "#333", font: { size: 9 }, maxRotation: 0 } },
+    y: { grid: { color: "rgba(255,255,255,.04)", drawTicks: false }, ticks: { color: "#333", font: { size: 9 } }, min: 0, max: 6 },
   },
 };
 
 const stats = [
-  { label: "总资产", value: "¥ 128,450", sub: "2026 投入" },
-  { label: "今日盈亏", value: "+2.34%", sub: "盈利中", positive: true },
-  { label: "持仓数量", value: "7", sub: "只股票/ETF" },
+  { label: "总资产", value: "¥ 128,450", note: "2026 投入" },
+  { label: "今日盈亏", value: "+2.34%", note: "盈利中", pos: true },
+  { label: "持仓数量", value: "7", note: "只股票/ETF" },
 ];
 
 export default function InvestSection() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      {/* Stats grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
-        {stats.map(s => (
-          <div key={s.label} className="invest-stat">
-            <div style={{ fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 8 }}>{s.label}</div>
-            <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-.03em", lineHeight: 1, color: s.positive ? "#4ade80" : "var(--fg)", marginBottom: 4 }}>{s.value}</div>
-            <div style={{ fontSize: 11, color: "var(--muted)", opacity: 0.7 }}>{s.sub}</div>
+    <div>
+      {stats.map(s => (
+        <div key={s.label} className="invest-stat">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+            <span style={{ fontSize: 11, color: "var(--muted)" }}>{s.label}</span>
+            <div style={{ textAlign: "right" }}>
+              <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-.02em", color: s.pos ? "#4ade80" : "var(--fg)" }}>{s.value}</span>
+              <span style={{ fontSize: 10, color: "var(--muted)", marginLeft: 8 }}>{s.note}</span>
+            </div>
           </div>
-        ))}
-      </div>
-      {/* Chart */}
-      <div style={{ height: 140, position: "relative" }}>
+        </div>
+      ))}
+      <div style={{ height: 100, marginTop: 20 }}>
         <Line data={chartData} options={chartOptions} />
       </div>
     </div>
