@@ -13,7 +13,6 @@ const LINKS = [
 
 export default function Nav() {
   const [active, setActive] = useState("");
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -21,48 +20,46 @@ export default function Nav() {
       { rootMargin: "-40% 0px -55% 0px" }
     );
     LINKS.forEach(({ id }) => { const el = document.getElementById(id); if (el) obs.observe(el); });
-    const onScroll = () => setScrolled(window.scrollY > 32);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { obs.disconnect(); window.removeEventListener("scroll", onScroll); };
+    return () => obs.disconnect();
   }, []);
 
   return (
     <nav style={{
-      position: "sticky", top: 0, zIndex: 100,
-      padding: "8px var(--px)",
-      background: scrolled ? "rgba(0,0,0,.5)" : "transparent",
-      backdropFilter: scrolled ? "blur(8px)" : "none",
-      transition: "background .4s",
+      position: "sticky", top: 12, zIndex: 100,
+      display: "flex", justifyContent: "center",
+      pointerEvents: "none",
     }}>
-      <div style={{ maxWidth: "var(--max)", margin: "0 auto" }}>
+      <div style={{ pointerEvents: "auto" }}>
         <LiquidGlass
           cornerRadius={999}
-          displacementScale={36}
-          blurAmount={0.06}
-          saturation={130}
-          aberrationIntensity={1.2}
-          elasticity={0.2}
+          displacementScale={40}
+          blurAmount={0.07}
+          saturation={140}
+          aberrationIntensity={1.4}
+          elasticity={0.25}
           mode="standard"
-          padding="0 20px"
-          style={{ width: "100%" }}
+          padding="0 6px"
         >
-          <div style={{ height: 44, display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", minWidth: 600 }}>
-            <a href="/" style={{ fontFamily: "'Press Start 2P',monospace", fontSize: 10, color: "rgba(255,255,255,.85)", textDecoration: "none", letterSpacing: ".04em" }}>
-              CAIMAN.LAB
+          <div style={{ height: 44, display: "flex", alignItems: "center", gap: 0, padding: "0 12px" }}>
+            <a href="/" style={{
+              fontFamily: "'Press Start 2P',monospace", fontSize: 9,
+              color: "rgba(255,255,255,.8)", textDecoration: "none",
+              letterSpacing: ".04em", paddingRight: 20, marginRight: 8,
+              borderRight: "1px solid rgba(255,255,255,.1)",
+            }}>
+              C.LAB
             </a>
-            <div style={{ display: "flex", gap: 4 }}>
-              {LINKS.map(({ id, label }) => (
-                <a key={id} href={`#${id}`} style={{
-                  fontSize: 13, textDecoration: "none", letterSpacing: ".02em",
-                  padding: "6px 14px", borderRadius: 999,
-                  color: active === id ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)",
-                  background: active === id ? "rgba(255,255,255,.12)" : "transparent",
-                  transition: "all .25s",
-                }}>
-                  {label}
-                </a>
-              ))}
-            </div>
+            {LINKS.map(({ id, label }) => (
+              <a key={id} href={`#${id}`} style={{
+                fontSize: 12, textDecoration: "none", letterSpacing: ".02em",
+                padding: "6px 14px", borderRadius: 999,
+                color: active === id ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.42)",
+                background: active === id ? "rgba(255,255,255,.12)" : "transparent",
+                transition: "all .25s",
+              }}>
+                {label}
+              </a>
+            ))}
           </div>
         </LiquidGlass>
       </div>
