@@ -5,7 +5,7 @@ import IntelSignalCard from "@/components/IntelSignalCard";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import FadeIn from "@/components/FadeIn";
 import ExploreCard from "@/components/ExploreCard";
-import InvestSection from "@/components/InvestSection";
+import InvestClient from "@/components/InvestClient";
 import CountdownSection from "@/components/CountdownSection";
 import TravelMapClient from "@/components/TravelMapClient";
 import signalData from "../../public/data/signal-data.json";
@@ -161,7 +161,7 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
           <FadeIn>
             <ExploreCard eyebrow="Invest" title="股票理财">
-              <InvestSection />
+              <InvestClient />
             </ExploreCard>
           </FadeIn>
           <FadeIn delay={1}>
