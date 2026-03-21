@@ -10,15 +10,6 @@ import signalData from "../../public/data/signal-data.json";
 
 const C: React.CSSProperties = { maxWidth: "var(--max)", margin: "0 auto", padding: "0 var(--px)" };
 
-const TOOLS = [
-  { icon: "✦", name: "Figma",       desc: "UI / 原型 / 组件系统" },
-  { icon: "◈", name: "Framer",      desc: "交互动效 / 网站发布" },
-  { icon: "⬡", name: "Midjourney", desc: "AI 视觉生成 / 概念探索" },
-  { icon: "◎", name: "Cursor",      desc: "AI 编程 / 前端实现" },
-  { icon: "△", name: "After Effects", desc: "动效 / 品牌视频" },
-  { icon: "□", name: "Notion",      desc: "设计文档 / 项目管理" },
-];
-
 export default function Home() {
   return (
     <main style={{ position: "relative" }}>
@@ -62,7 +53,7 @@ export default function Home() {
               <span className="meta">最新做的项目实验</span>
             </div>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
             <FadeIn delay={1}><WorkCard index={0} num="01 · BRAND / PRODUCT / AI" title="Spring OS" desc="为创意工具设计的视觉与交互语言。" tags={["Brand","Product","AI"]} /></FadeIn>
             <FadeIn delay={2}><WorkCard index={1} num="02 · INTERFACE / MOTION / SYSTEMS" title="Studio Flow" desc="具有电影节奏感的 AI 工作空间。" tags={["Interface","Motion","Systems"]} /></FadeIn>
           </div>
@@ -112,27 +103,22 @@ export default function Home() {
                 <span style={{ fontSize: 20 }}>💡</span>
                 <span className="label">Design</span>
               </div>
-              <span className="meta">工具栈 · 设计实验 · 生产笔记</span>
+              <span className="meta">设计实验 · 生产笔记</span>
             </div>
           </FadeIn>
-          {/* Tool grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginBottom: 16 }}>
-            {TOOLS.map((t, i) => (
-              <FadeIn key={t.name} delay={(i % 3 + 1) as 1|2|3}>
-                <div className="tool-card">
-                  <div style={{ fontSize: 22, marginBottom: 14, opacity: .7 }}>{t.icon}</div>
-                  <div style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-.02em", marginBottom: 6 }}>{t.name}</div>
-                  <div className="meta">{t.desc}</div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-          {/* Coming soon row */}
           <FadeIn>
-            <div className="glass card-placeholder" style={{ padding: "28px 0", textAlign: "center", borderRadius: "var(--radius)" }}>
-              <div className="card-placeholder-inner" style={{ minHeight: 60 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <span>设计实验 · 内容整理中</span>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+              <div className="std-card std-card-ph">
+                <div className="std-card-ph-inner">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>Coming Soon</span>
+                </div>
+              </div>
+              <div className="std-card std-card-ph">
+                <div className="std-card-ph-inner">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>Coming Soon</span>
+                </div>
               </div>
             </div>
           </FadeIn>

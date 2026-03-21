@@ -25,9 +25,8 @@ export default function Nav() {
 
   return (
     <nav style={{
-      position: "sticky", top: 12, zIndex: 100,
-      display: "flex", justifyContent: "center",
-      pointerEvents: "none",
+      position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)",
+      zIndex: 100, pointerEvents: "none",
     }}>
       <div style={{ pointerEvents: "auto" }}>
         <LiquidGlass
@@ -38,24 +37,24 @@ export default function Nav() {
           aberrationIntensity={1.4}
           elasticity={0.25}
           mode="standard"
-          padding="0 6px"
+          padding="0 4px"
         >
-          <div style={{ height: 44, display: "flex", alignItems: "center", gap: 0, padding: "0 12px" }}>
+          <div style={{ height: 42, display: "flex", alignItems: "center", padding: "0 10px", gap: 0 }}>
             <a href="/" style={{
-              fontFamily: "'Press Start 2P',monospace", fontSize: 9,
+              fontFamily: "'Press Start 2P',monospace", fontSize: 8,
               color: "rgba(255,255,255,.8)", textDecoration: "none",
-              letterSpacing: ".04em", paddingRight: 20, marginRight: 8,
-              borderRight: "1px solid rgba(255,255,255,.1)",
+              letterSpacing: ".04em", paddingRight: 16, marginRight: 6,
+              borderRight: "1px solid rgba(255,255,255,.1)", whiteSpace: "nowrap",
             }}>
-              C.LAB
+              CAIMAN.LAB
             </a>
             {LINKS.map(({ id, label }) => (
               <a key={id} href={`#${id}`} style={{
                 fontSize: 12, textDecoration: "none", letterSpacing: ".02em",
-                padding: "6px 14px", borderRadius: 999,
+                padding: "5px 12px", borderRadius: 999,
                 color: active === id ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.42)",
                 background: active === id ? "rgba(255,255,255,.12)" : "transparent",
-                transition: "all .25s",
+                transition: "all .25s", whiteSpace: "nowrap",
               }}>
                 {label}
               </a>
