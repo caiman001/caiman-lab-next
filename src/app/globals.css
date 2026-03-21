@@ -139,6 +139,12 @@ body {
   background: rgba(255,255,255,.1);
 }
 
+.social-link {
+  color: var(--fg3);
+  transition: color .2s ease;
+}
+.social-link:hover { color: var(--fg2); }
+
 /* ═══════════════════════════════
    Layout
 ═══════════════════════════════ */
