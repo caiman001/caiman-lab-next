@@ -270,7 +270,8 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer style={{
         position: "relative", zIndex: 1,
-        borderTop: "1px solid var(--border)",
+        borderTop: "1px solid var(--border-h)",
+        background: "rgba(255,255,255,.01)",
       }}>
         <div style={{
           ...C,
