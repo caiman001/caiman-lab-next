@@ -1,6 +1,6 @@
 const PREVIEWS = [
-  "linear-gradient(135deg, rgba(255,107,53,.75) 0%, rgba(255,165,0,.65) 50%, rgba(255,140,66,.7) 100%)",
-  "linear-gradient(135deg, rgba(255,127,80,.7) 0%, rgba(255,99,71,.65) 50%, rgba(255,69,0,.75) 100%)",
+  "linear-gradient(135deg, rgba(255,107,53,.45) 0%, rgba(255,165,0,.35) 50%, rgba(255,140,66,.4) 100%)",
+  "linear-gradient(135deg, rgba(255,127,80,.4) 0%, rgba(255,99,71,.35) 50%, rgba(255,69,0,.45) 100%)",
 ];
 
 interface WorkCardProps { num: string; title: string; desc: string; tags: string[]; index?: number; }
@@ -14,7 +14,7 @@ export default function WorkCard({ num, title, desc, tags, index = 0 }: WorkCard
           backgroundImage: "linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px)",
           backgroundSize: "40px 40px",
         }} />
-        <div style={{ position: "absolute", bottom: 14, right: 18, fontSize: 9, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(255,255,255,.1)" }}>{title}</div>
+        <div style={{ position: "absolute", bottom: 14, right: 18, fontSize: 9, letterSpacing: ".2em", textTransform: "uppercase", color: "rgba(255,255,255,.18)", fontWeight: 600 }}>{title}</div>
       </div>
       <div className="std-card-body">
         <div className="std-card-label">{num}</div>
