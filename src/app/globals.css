@@ -25,10 +25,12 @@ body {
   --border:  rgba(255,255,255,.12);
   --border-h:rgba(255,255,255,.22);
 
-  /* Accent — single brand color */
-  --accent:       #5B6AF0;
-  --accent-dim:   rgba(91,106,240,.12);
-  --accent-glow:  rgba(91,106,240,.06);
+  /* Accent — orange gradient system */
+  --accent:       #FF6B35;
+  --accent-dim:   rgba(255,107,53,.12);
+  --accent-glow:  rgba(255,107,53,.08);
+  --accent-from:  #FF6B35;
+  --accent-to:    #FFA500;
 
   /* Layout */
   --max:    1080px;
@@ -47,9 +49,9 @@ body {
   --s7:  128px;
 
   /* Glass (nav only) */
-  --gblur: blur(24px) saturate(1.5) brightness(1.04);
-  --gb:    rgba(255,255,255,.045);
-  --gbr:   rgba(255,255,255,.1);
+  --gblur: blur(32px) saturate(1.6) brightness(1.06);
+  --gb:    rgba(255,255,255,.055);
+  --gbr:   rgba(255,255,255,.12);
 }
 
 /* ═══════════════════════════════
@@ -97,19 +99,19 @@ body {
 .nav-wrap {
   position: fixed;
   top: max(28px, calc(env(safe-area-inset-top) + 12px));
-  left: 0; right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
-  display: flex;
-  justify-content: center;
   pointer-events: none;
 }
 .nav-wrap > * { pointer-events: auto; }
 .nav-shell {
-  height: 44px;
+  height: 46px;
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 0 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.4);
 }
 .nav-brand {
   font-family: 'Press Start 2P', monospace;
@@ -143,6 +145,7 @@ body {
 .nav-link.is-active {
   color: rgba(255,255,255,.94);
   background: rgba(255,255,255,.16);
+  box-shadow: 0 0 12px rgba(255,107,53,.3);
 }
 
 .social-link {
@@ -183,7 +186,7 @@ body {
   width: 18px;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(91,106,240,.95), rgba(91,106,240,.35));
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
 }
 
 /* ═══════════════════════════════
@@ -203,8 +206,8 @@ body {
 }
 .tag:hover { border-color: var(--border-h); color: var(--fg2); }
 .tag.is-accent {
-  border-color: rgba(91,106,240,.35);
-  color: rgba(140,152,255,.9);
+  border-color: rgba(255,107,53,.4);
+  color: rgba(255,140,80,.95);
   background: var(--accent-dim);
 }
 
@@ -295,10 +298,10 @@ body {
 .card-dot {
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
   flex-shrink: 0;
   margin-top: 2px;
-  box-shadow: 0 0 6px var(--accent);
+  box-shadow: 0 0 8px var(--accent);
 }
 
 /* Card — placeholder */

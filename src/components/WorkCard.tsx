@@ -1,6 +1,6 @@
 const PREVIEWS = [
-  "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
-  "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+  "linear-gradient(135deg, #FF6B35 0%, #FFA500 50%, #FF8C42 100%)",
+  "linear-gradient(135deg, #FF7F50 0%, #FF6347 50%, #FF4500 100%)",
 ];
 
 interface WorkCardProps { num: string; title: string; desc: string; tags: string[]; index?: number; }

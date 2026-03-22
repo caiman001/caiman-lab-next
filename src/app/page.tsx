@@ -32,16 +32,24 @@ export default function Home() {
           top: "-20%", left: "-10%",
           width: "65vw", height: "65vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(91,106,240,.07) 0%, transparent 65%)",
-          filter: "blur(80px)",
+          background: "radial-gradient(circle, rgba(255,107,53,.09) 0%, transparent 65%)",
+          filter: "blur(90px)",
         }} />
         <div style={{
           position: "absolute",
           bottom: "10%", right: "-5%",
           width: "45vw", height: "45vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(60,60,160,.05) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(255,165,0,.06) 0%, transparent 65%)",
           filter: "blur(100px)",
+        }} />
+        <div style={{
+          position: "absolute",
+          top: "30%", right: "10%",
+          width: "40vw", height: "40vw",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,140,80,.05) 0%, transparent 65%)",
+          filter: "blur(110px)",
         }} />
       </div>
 
@@ -270,7 +278,8 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer style={{
         position: "relative", zIndex: 1,
-        borderTop: "1px solid var(--border-h)",
+        borderTop: "1px solid transparent",
+        borderImage: "linear-gradient(90deg, transparent, var(--accent-from), var(--accent-to), transparent) 1",
         background: "rgba(255,255,255,.01)",
       }}>
         <div style={{
