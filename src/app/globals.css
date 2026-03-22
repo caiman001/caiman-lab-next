@@ -20,10 +20,10 @@ body {
   /* Colors */
   --bg:      #080808;
   --fg:      rgba(255,255,255,.88);
-  --fg2:     rgba(255,255,255,.48);
-  --fg3:     rgba(255,255,255,.24);
-  --border:  rgba(255,255,255,.08);
-  --border-h:rgba(255,255,255,.16);
+  --fg2:     rgba(255,255,255,.62);
+  --fg3:     rgba(255,255,255,.38);
+  --border:  rgba(255,255,255,.12);
+  --border-h:rgba(255,255,255,.22);
 
   /* Accent — single brand color */
   --accent:       #5B6AF0;
@@ -35,6 +35,7 @@ body {
   --px:     48px;
   --radius: 14px;
   --radius-sm: 8px;
+  --card-w: 268px;
 
   /* Spacing scale */
   --s1:  8px;
@@ -95,7 +96,7 @@ body {
 ═══════════════════════════════ */
 .nav-wrap {
   position: fixed;
-  top: 16px;
+  top: max(28px, calc(env(safe-area-inset-top) + 12px));
   left: 0; right: 0;
   z-index: 100;
   display: flex;
@@ -104,23 +105,28 @@ body {
 }
 .nav-wrap > * { pointer-events: auto; }
 .nav-shell {
-  height: 40px;
+  height: 44px;
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 0 8px;
+  gap: 6px;
+  padding: 0 10px;
 }
 .nav-brand {
   font-family: 'Press Start 2P', monospace;
-  font-size: 7.5px;
-  color: rgba(255,255,255,.75);
+  font-size: 8px;
+  color: rgba(255,255,255,.72);
   text-decoration: none;
   letter-spacing: .04em;
   white-space: nowrap;
-  padding: 0 10px;
   transition: color .2s;
 }
 .nav-brand:hover { color: rgba(255,255,255,.95); }
+.nav-brand-floating {
+  position: fixed;
+  top: max(40px, calc(env(safe-area-inset-top) + 24px));
+  left: 24px;
+  z-index: 101;
+}
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-link {
   font-size: 11.5px;
@@ -154,7 +160,7 @@ body {
   padding: 0 var(--px);
 }
 .section {
-  padding: var(--s6) 0;
+  padding: 84px 0;
   position: relative;
   background: var(--bg);
 }
@@ -291,7 +297,7 @@ body {
 /* Card — placeholder */
 .card-placeholder {
   border-style: dashed;
-  border-color: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.14) !important;
   pointer-events: none;
 }
 .card-placeholder-inner {
@@ -301,20 +307,64 @@ body {
   justify-content: center;
   gap: 10px;
   aspect-ratio: 16 / 9;
-  color: rgba(255,255,255,.18);
+  color: rgba(255,255,255,.34);
 }
-.card-placeholder-inner svg { width: 14px; height: 14px; opacity: .5; }
+.card-placeholder-inner svg { width: 14px; height: 14px; opacity: .72; }
 .card-placeholder-inner span {
   font-size: 9px;
   letter-spacing: .14em;
   text-transform: uppercase;
 }
 
+/* Backward-compatible aliases (current components use std-*) */
+.std-card {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .3s ease, background .3s ease, transform .4s cubic-bezier(.22,1,.36,1);
+}
+.std-card:hover {
+  border-color: var(--border-h);
+  background: rgba(255,255,255,.03);
+  transform: translateY(-2px);
+}
+.std-card-preview {
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255,255,255,.04);
+}
+.std-card-preview img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(.66) saturate(.76);
+  transition: transform .5s cubic-bezier(.22,1,.36,1), filter .3s;
+}
+.std-card:hover .std-card-preview img { transform: scale(1.04); filter: brightness(.82) saturate(.88); }
+.std-card-body { padding: var(--s3); flex: 1; display: flex; flex-direction: column; gap: var(--s1); }
+.std-card-label { font-size: 9px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--fg3); }
+.std-card-title { font-size: 14px; font-weight: 600; letter-spacing: -.02em; line-height: 1.35; color: rgba(255,255,255,.9); }
+.std-card-desc { font-size: 12px; color: var(--fg2); line-height: 1.6; flex: 1; }
+.std-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--s1); }
+.std-card-ph { border-style: dashed; border-color: rgba(255,255,255,.14) !important; pointer-events: none; }
+.std-card-ph-inner {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; aspect-ratio: 16/9; color: rgba(255,255,255,.34);
+}
+.std-card-ph-inner svg { width: 14px; height: 14px; opacity: .72; }
+.std-card-ph-inner span { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+
 /* ═══════════════════════════════
    Signal Card (fixed-width scroll)
 ═══════════════════════════════ */
 .signal-card {
-  flex: 0 0 210px;
+  flex: 0 0 var(--card-w);
   min-width: 0;
   position: relative;
   overflow: hidden;
