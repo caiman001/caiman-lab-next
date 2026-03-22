@@ -3,8 +3,8 @@ import { Chart as ChartJS, LineElement, PointElement, LinearScale, CategoryScale
 import { Line } from "react-chartjs-2";
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Filler, Tooltip);
 
-const labels = ["3/1","3/3","3/5","3/7","3/9","3/11","3/13"];
-const scores = [3.5,3.2,4.5,3.9,4.8,4.1,4.7];
+const labels = ["3/1","3/3","3/5","3/7","3/9","3/11","3/13","3/15","3/17","3/19","3/20"];
+const scores = [3.5,3.2,4.5,3.9,4.8,4.1,4.7,3.8,4.2,4.0,2.0];
 const chartData = {
   labels,
   datasets: [{
@@ -24,9 +24,9 @@ const chartOptions = {
 };
 
 const stats = [
-  { label: "总资产", value: "¥ 128,450", note: "2026" },
-  { label: "今日盈亏", value: "+2.34%", pos: true, note: "盈利中" },
-  { label: "持仓数量", value: "7", note: "只" },
+  { label: "当前准确率", value: "2.0★", note: "2026-03-22" },
+  { label: "本周最佳", value: "4.8★", pos: true, note: "3/9" },
+  { label: "持仓数量", value: "5", note: "只" },
 ];
 
 export default function InvestSection() {
