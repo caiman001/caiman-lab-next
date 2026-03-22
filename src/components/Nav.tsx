@@ -27,31 +27,29 @@ export default function Nav() {
   }, []);
 
   return (
-    <>
-      <a href="/" className="nav-brand nav-brand-floating">CAIMAN.LAB</a>
-      <div className="nav-wrap" aria-label="Primary">
-        <LiquidGlass
-          style={{ width: "max-content" }}
-          cornerRadius={999}
-          displacementScale={36}
-          blurAmount={0.06}
-          saturation={135}
-          aberrationIntensity={1.2}
-          elasticity={0.22}
-          mode="standard"
-          padding="0 6px"
-        >
-          <nav className="nav-shell">
-            <div className="nav-links">
-              {LINKS.map(({ id, label }) => (
-                <a key={id} href={`#${id}`} className={`nav-link ${active === id ? "is-active" : ""}`}>
-                  {label}
-                </a>
-              ))}
-            </div>
-          </nav>
-        </LiquidGlass>
-      </div>
-    </>
+    <div className="nav-wrap" aria-label="Primary">
+      <LiquidGlass
+        style={{ width: "max-content" }}
+        cornerRadius={999}
+        displacementScale={36}
+        blurAmount={0.06}
+        saturation={135}
+        aberrationIntensity={1.2}
+        elasticity={0.22}
+        mode="standard"
+        padding="0 6px"
+      >
+        <nav className="nav-shell">
+          <a href="/" className="nav-brand">CAIMAN.LAB</a>
+          <div className="nav-links">
+            {LINKS.map(({ id, label }) => (
+              <a key={id} href={`#${id}`} className={`nav-link ${active === id ? "is-active" : ""}`}>
+                {label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      </LiquidGlass>
+    </div>
   );
 }

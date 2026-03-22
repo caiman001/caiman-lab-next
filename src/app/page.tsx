@@ -57,7 +57,7 @@ export default function Home() {
       <section
         style={{
           position: "relative", zIndex: 1,
-          padding: "152px 0 120px",
+          padding: "140px 0 100px",
         }}
       >
         <div style={C}>

@@ -77,11 +77,11 @@ body {
   color: var(--fg2);
 }
 .t-label {
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--fg3);
+  color: rgba(255,255,255,.5);
 }
 .t-caption {
   font-size: 11px;
@@ -109,7 +109,7 @@ body {
   height: 46px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
   padding: 0 10px;
   box-shadow: 0 4px 24px rgba(0,0,0,.4);
 }
@@ -121,14 +121,10 @@ body {
   letter-spacing: .04em;
   white-space: nowrap;
   transition: color .2s;
+  padding-right: 12px;
+  border-right: 1px solid rgba(255,255,255,.1);
 }
 .nav-brand:hover { color: rgba(255,255,255,.95); }
-.nav-brand-floating {
-  position: fixed;
-  top: max(40px, calc(env(safe-area-inset-top) + 24px));
-  left: 24px;
-  z-index: 101;
-}
 .nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-link {
   font-size: 11.5px;
@@ -183,7 +179,7 @@ body {
 }
 .section-header-left::before {
   content: "";
-  width: 18px;
+  width: 32px;
   height: 2px;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
@@ -420,7 +416,7 @@ body {
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--s2);
+  gap: 12px;
 }
 
 /* ═══════════════════════════════
